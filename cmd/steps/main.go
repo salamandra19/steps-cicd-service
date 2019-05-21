@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
+
+	"github.com/powerman/structlog"
 )
 
 func main() {
+	log := structlog.New()
 	http.HandleFunc("/", steps)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
